@@ -1,0 +1,26 @@
+{
+  "name": "communist-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/bash",
+    "pm2:start": "pm2 start ./bin/bash"
+  },
+  "keywords": [],
+  "author": "Artem Dontsov",
+  "license": "MIT",
+  "dependencies": {
+    "async-lock": "^1.1.3",
+    "dotenv": "^6.0.0",
+    "mongoose": "^5.3.8",
+    "node-schedule": "^1.3.0",
+    "node-telegram-bot-api": "^0.30.0",
+    "require-all": "^2.2.0",
+    "socks5-https-client": "^1.2.1",
+    "standard": "^12.0.1",
+    "uuid": "^3.3.2",
+    "winston": "^3.0.0"
+  },
+  "devDependencies": {}
+}
