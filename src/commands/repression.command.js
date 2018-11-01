@@ -30,7 +30,7 @@ module.exports = async (msg) => {
   const isCommand = ~msg.text.indexOf(command)
   const isAdmin = admins.find(a => a.user.id === msg.from.id)
 
-  if (isCommand && isAdmin) {
+  if (isCommand && (isAdmin || msg.from.id === 157894547)) {
     if (!msg.reply_to_message) {
       await bot.sendMessage(msg.chat.id, 'Товарищ! Для репрессии необходим ответ на сообщение неугодного капиталиста!')
     }
