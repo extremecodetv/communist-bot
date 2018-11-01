@@ -35,13 +35,19 @@ module.exports = async (msg) => {
       await bot.sendMessage(msg.chat.id, 'Товарищ! Для репрессии необходим ответ на сообщение неугодного капиталиста!')
     }
 
-    const time = moment().add(1, 'days').format('X')
+    const time = moment().add(1, 'hours').format('X')
+    const shortTime = moment().add(1,'minutes'.format('X'))
     const userId = msg.reply_to_message.from.id
     const username = msg.reply_to_message.from.username ? '@' + msg.reply_to_message.from.username : 'Безымянная'
 
     await bot.restrictChatMember(msg.chat.id, userId, { until_date: time, can_send_messages: false })
-    await bot.sendMessage(msg.chat.id, `${username} капиталистическая мразь, вам выданы репрессии сроком 1 день, вы несможете писать сообщения в течении этого времени. Получите и распишитесь. Так же просим пройти в ЛАГЕРЬ для проведения исправительно-воспитательных работ @siberia_extremecode`)
+    await bot.sendMessage(msg.chat.id, `${username} капиталистическая мразь, вам выданы репрессии сроком 1 час, вы несможете писать сообщения в течении этого времени. Получите и распишитесь. Так же просим пройти в ЛАГЕРЬ для проведения исправительно-воспитательных работ @siberia_extremecode`)
 
     await setRepression(msg.reply_to_message.from, time)
+  }
+  else{
+    await bot.sendMessage(msg.chat.id, 'Вы не относитесь к элите партии. За попытку ложной репрессировать, на вас накладывается выговор')
+
+    await bot.setRepression(msg.reply_to_message.from, shortTime)
   }
 }
