@@ -6,7 +6,7 @@ const setCommand = '/set_rules'
 
 let admins = []
 
-bot.getChatAdministrators('@efefewfwevf').then(result => {
+bot.getChatAdministrators('@extremecode_rest').then(result => {
   admins = result
 })
 
